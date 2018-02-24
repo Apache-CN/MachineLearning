@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# coding:utf8
+# coding:utf-8
 '''
 Created on Oct 12, 2010
 Update on 2017-05-18
@@ -70,7 +70,7 @@ def calcShannonEnt(dataSet):
     for key in labelCounts:
         # 使用所有类标签的发生频率计算类别出现的概率。
         prob = float(labelCounts[key])/numEntries
-        # log base 2
+        # log base 2 
         # 计算香农熵，以 2 为底求对数
         shannonEnt -= prob * log(prob, 2)
         # print '---', prob, prob * log(prob, 2), shannonEnt
@@ -290,20 +290,20 @@ def classify(inputTree, featLabels, testVec):
 def storeTree(inputTree, filename):
     import pickle
     # -------------- 第一种方法 start --------------
-    fw = open(filename, 'w')
+    fw = open(filename, 'wb')
     pickle.dump(inputTree, fw)
     fw.close()
     # -------------- 第一种方法 end --------------
 
     # -------------- 第二种方法 start --------------
-    with open(filename, 'w') as fw:
+    with open(filename, 'wb') as fw:
         pickle.dump(inputTree, fw)
     # -------------- 第二种方法 start --------------
 
 
 def grabTree(filename):
     import pickle
-    fr = open(filename)
+    fr = open(filename,'rb')
     return pickle.load(fr)
 
 
@@ -356,5 +356,5 @@ def ContactLensesTest():
 
 
 if __name__ == "__main__":
-    # fishTest()
-    ContactLensesTest()
+    fishTest()
+    # ContactLensesTest()
